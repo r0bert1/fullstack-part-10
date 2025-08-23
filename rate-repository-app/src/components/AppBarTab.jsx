@@ -1,9 +1,9 @@
-import { StyleSheet, Pressable } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import Text from './Text';
 
 const styles = StyleSheet.create({
-  container: {
+  tab: {
     padding: 15
   },
 });
@@ -11,11 +11,9 @@ const styles = StyleSheet.create({
 
 const AppBarTab = ({ title }) => {
   return (
-    <Pressable onPress={() => console.log('Pressed!')} style={styles.container}>
-      <Text fontSize="subheading" fontWeight="bold" color="secondary">
-        {title}
-      </Text>
-    </Pressable>
+    <Text style={styles.tab} fontSize="subheading" fontWeight="bold" color="secondary">
+      {title}
+    </Text>
   );
 };
 
