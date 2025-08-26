@@ -38,20 +38,20 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     padding: 4,
     borderRadius: 4,
-  }
+  },
 });
 
 const RepositoryItem = ({ repository }) => {
   const repositoryData = {
-    "Stars": repository.stargazersCount,
-    "Forks": repository.forksCount,
-    "Reviews": repository.reviewCount,
-    "Rating": repository.ratingAverage,
-  }
+    Stars: repository.stargazersCount,
+    Forks: repository.forksCount,
+    Reviews: repository.reviewCount,
+    Rating: repository.ratingAverage,
+  };
 
-  const formatNumber = number => {
+  const formatNumber = (number) => {
     return number >= 1000 ? (number / 1000).toFixed(1) + 'k' : number;
-  }
+  };
 
   return (
     <View key={repository.id} style={styles.container}>
@@ -62,21 +62,17 @@ const RepositoryItem = ({ repository }) => {
             uri: repository.ownerAvatarUrl,
           }}
         />
-        <View style={[ styles.flexContainer, styles.data ]}>
+        <View style={[styles.flexContainer, styles.data]}>
           <Text fontWeight="bold">{repository.fullName}</Text>
           <Text color="textSecondary">{repository.description}</Text>
           <Text style={styles.badge}>{repository.language}</Text>
         </View>
       </View>
-      <View style={[ styles.flexContainerRow, styles.stats ]}>
+      <View style={[styles.flexContainerRow, styles.stats]}>
         {Object.entries(repositoryData).map(([key, value]) => (
-          <View style={[ styles.flexContainer, styles.stat ]} key={key}>
-            <Text fontWeight="bold">
-              {formatNumber(value)}
-            </Text>
-            <Text color="textSecondary">
-              {key}
-            </Text>
+          <View style={[styles.flexContainer, styles.stat]} key={key}>
+            <Text fontWeight="bold">{formatNumber(value)}</Text>
+            <Text color="textSecondary">{key}</Text>
           </View>
         ))}
       </View>
