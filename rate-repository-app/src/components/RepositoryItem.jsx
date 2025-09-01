@@ -41,6 +41,10 @@ const styles = StyleSheet.create({
   },
 });
 
+export const formatNumber = (number) => {
+  return number >= 1000 ? (number / 1000).toFixed(1) + 'k' : number;
+};
+
 const RepositoryItem = ({ repository }) => {
   const repositoryData = {
     Stars: repository.stargazersCount,
@@ -49,12 +53,8 @@ const RepositoryItem = ({ repository }) => {
     Rating: repository.ratingAverage,
   };
 
-  const formatNumber = (number) => {
-    return number >= 1000 ? (number / 1000).toFixed(1) + 'k' : number;
-  };
-
   return (
-    <View key={repository.id} style={styles.container}>
+    <View testID="repositoryItem" key={repository.id} style={styles.container}>
       <View style={styles.flexContainerRow}>
         <Image
           style={styles.tinyLogo}
