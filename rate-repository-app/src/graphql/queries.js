@@ -1,5 +1,22 @@
 import { gql } from '@apollo/client';
 
+export const GET_REPOSITORY = gql`
+  query ($repositoryId: ID!) {
+    repository(id: $repositoryId) {
+      url
+      language
+      id
+      fullName
+      forksCount
+      description
+      ownerAvatarUrl
+      ratingAverage
+      reviewCount
+      stargazersCount
+    }
+  }
+`;
+
 export const GET_REPOSITORIES = gql`
   query {
     repositories {

@@ -6,6 +6,7 @@ import theme from '../theme';
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+    backgroundColor: theme.colors.secondary,
   },
   flexContainerRow: {
     display: 'flex',

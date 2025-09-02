@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     padding: 15,
     alignItems: 'stretch',
     gap: 15,
+    backgroundColor: theme.colors.secondary,
   },
   item: {
     borderRadius: 3,

@@ -2,6 +2,7 @@ import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { useApolloClient } from '@apollo/client';
 import Constants from 'expo-constants';
 import { Link } from 'react-router-native';
+import { useNavigate } from 'react-router';
 
 import AppBarTab from './AppBarTab';
 import useMe from '../hooks/useMe';
@@ -20,10 +21,12 @@ const AppBar = () => {
   const { me } = useMe();
   const authStorage = useAuthStorage();
   const apolloClient = useApolloClient();
+  const navigate = useNavigate();
 
   const signOut = async () => {
     await authStorage.removeAccessToken();
     apolloClient.resetStore();
+    navigate('/');
   };
 
   return (
