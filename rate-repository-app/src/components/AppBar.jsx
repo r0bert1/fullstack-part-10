@@ -40,6 +40,11 @@ const AppBar = () => {
             <AppBarTab title="Create a review" />
           </Link>
         )}
+        {me && (
+          <Link to="/my-reviews">
+            <AppBarTab title="My reviews" />
+          </Link>
+        )}
         {me ? (
           <Pressable onPress={signOut}>
             <AppBarTab title="Sign out" />

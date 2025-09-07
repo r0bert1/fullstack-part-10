@@ -67,7 +67,7 @@ const RepositoryInfo = ({ repository }) => (
   </View>
 );
 
-const ReviewItem = ({ review }) => {
+export const ReviewItem = ({ review, myReviews }) => {
   return (
     <View style={[styles.flexContainerRow]}>
       <View style={styles.ratingContainer}>
@@ -76,7 +76,9 @@ const ReviewItem = ({ review }) => {
         </Text>
       </View>
       <View style={[styles.flexContainer, styles.data]}>
-        <Text fontWeight="bold">{review.user.username}</Text>
+        <Text fontWeight="bold">
+          {myReviews ? review.repository.fullName : review.user.username}
+        </Text>
         <Text color="textSecondary">
           {format(review.createdAt, 'dd.MM.yyyy')}
         </Text>
